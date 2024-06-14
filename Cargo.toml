@@ -10,6 +10,8 @@ include = [
     "Cargo.toml"
 ]
 keywords = ["tauri-plugin","penetrable","ignoreMouseEvents","click-through"]
+repository = "https://github.com/fm-elpac/librush"
+categories = ["tauri-plugin"]
 readme = "readme.md"
 [dependencies]
 tauri = "1.4.1"
