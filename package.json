@@ -1,0 +1,10 @@
+{
+  "description": "",
+  "scripts": {
+    "publish": "cargo publish --registry crates-io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sner21/tauri-plugin-penetrable.git"
+  }
+}

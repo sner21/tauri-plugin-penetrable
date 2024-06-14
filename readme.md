@@ -14,11 +14,11 @@ cargo add tauri-plugin-penetrable
 
 
 ```rust
-use tauri_plugin_penetrable::Penetrable;
+use tauri_plugin_penetrable::PenetrablePlugin;
 
 fn main() {
   tauri::Builder::default().plugin(
-      Penetrable::init(),
+      PenetrablePlugin::init(),
   );
 }
 ```
