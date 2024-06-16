@@ -1,7 +1,7 @@
 [package]
 name = "tauri-plugin-penetrable"
 description = "Using the win32api to achieve click-through of the tauri main window"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license = "MIT"
 authors = [ "sner21" ]
