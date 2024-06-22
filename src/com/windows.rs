@@ -1,24 +1,17 @@
-use winapi::{
-    shared::windef::HWND,
-    um::{
-        winnt::{LONG, LPCSTR},
-        winuser::{
-            {
-                FindWindowA,
-                GetWindowLongA,
-                SetWindowLongA,
-                GWL_EXSTYLE,
-                WS_EX_TRANSPARENT,
-                WS_EX_LAYERED,
-                WS_EX_TOOLWINDOW,
-                WS_EX_APPWINDOW
-            }
-        }
+use windows::Win32::UI::WindowsAndMessaging::{GetWindowLongA, GWL_STYLE, SetWindowLongA, SHOW_WINDOW_CMD, ShowWindow};
+use windows::{
+    core::{
+        PCWSTR,
+        HSTRING
     },
-    ctypes::{__int32},
+    Win32::{
+        UI::WindowsAndMessaging::{
+            FindWindowW,
+            GWL_EXSTYLE,
+        },
+    },
 };
-use std::ptr::null_mut;
-use std::ffi::CString;
+
 use tauri::{
     Runtime,
     window::Window,
@@ -28,10 +21,9 @@ pub fn penetrable<R:Runtime>(window:Window<R>) {
     #[cfg(target_os = "windows")]
     unsafe {
         let title = window.title().unwrap();
-        let str = CString::new(title);
-        let h: HWND = FindWindowA(null_mut(), str.unwrap().as_ptr() as LPCSTR);
-        let extended_style: __int32 = GetWindowLongA(h, GWL_EXSTYLE);
-        let style = extended_style | WS_EX_TRANSPARENT as LONG | WS_EX_LAYERED as LONG ;
-        SetWindowLongA(h, GWL_EXSTYLE, style);
+        let hwnd = FindWindowW(None,  PCWSTR(HSTRING::from(title.as_str()).as_ptr()));
+        let extended_style = GetWindowLongA(hwnd, GWL_EXSTYLE);
+        let style = extended_style | 32u32 as i32| 524288u32  as i32;
+        SetWindowLongA(hwnd, GWL_EXSTYLE, style);
     }
 }
