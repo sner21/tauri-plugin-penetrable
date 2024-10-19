@@ -1,15 +1,14 @@
-use windows::Win32::UI::WindowsAndMessaging::{GetWindowLongA, GWL_STYLE, SetWindowLongA, SHOW_WINDOW_CMD, ShowWindow};
+use windows::Win32::UI::WindowsAndMessaging::{GetWindowLongA, SetWindowLongA};
 use windows::{
     core::{
         PCWSTR,
         HSTRING
     },
-    Win32::{
+    Win32::
         UI::WindowsAndMessaging::{
             FindWindowW,
             GWL_EXSTYLE,
         },
-    },
 };
 
 use tauri::{

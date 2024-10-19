@@ -1,7 +1,7 @@
 [package]
 name = "tauri-plugin-penetrable"
 description = "Using the win32api to achieve click-through of the tauri main window"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 license = "MIT"
 authors = [ "sner21" ]
@@ -13,7 +13,7 @@ keywords = ["tauri-plugin","penetrable","ignoreMouseEvents","click-through"]
 repository = "https://github.com/sner21/tauri-plugin-penetrable"
 readme = "readme.md"
 [dependencies]
-tauri = "1.4.1"
+tauri = "2.0.4"
 
 
 [target."cfg(windows)".dependencies.windows]
